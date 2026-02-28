@@ -1,13 +1,8 @@
-//
-//  route.js
-//  
-//
-//  Created by Stevens Anthony Fabriga on 2/27/26.
-//
-import bcrypt from 'bcrypt'
-import { supabase } from '../../../../lib/supabase.js'
+import bcrypt from 'bcryptjs'
+import { supabaseServer } from '@/lib/supabase'
+import { NextRequest } from 'next/server'
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
     try {
         const { name, username, email, password } = await req.json()
 
@@ -34,6 +29,6 @@ export async function POST(req) {
 
         return Response.json({ message: 'User registered successfully' })
     } catch (err) {
-        return Response.json({ error: err.message }, { status: 500 })
+        return Response.json({ error: (err as Error).message }, { status: 500 })
     }
 }
