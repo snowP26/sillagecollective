@@ -5,7 +5,7 @@
 //  Created by Stevens Anthony Fabriga on 2/27/26.
 //
 import bcrypt from 'bcrypt'
-import { supabase } from '/Users/steve-0s/Projects/sillagecollective/lib/supabase.js'
+import { supabase } from '../../../../lib/supabase.js'
 
 export async function POST(req) {
     try {
