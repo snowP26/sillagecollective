@@ -1,0 +1,17 @@
+version: "2"
+
+sql:
+  - engine: "postgresql"
+    schema: "./server/internal/db/migration"
+    queries: "./server/internal/db/query"
+    database:
+      uri: "postgresql://postgres:strong_admin@127.0.0.1:5433/sillage_collective?sslmode=disable"
+    gen:
+      go:
+        package: "db"
+        out: "internal/db"
+        sql_package: "pgx/v5"
+        emit_json_tags: true
+        emit_prepared_queries: false
+        emit_interface: false
+        emit_exact_table_names: false
